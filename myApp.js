@@ -2,10 +2,22 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-conn = mongoose.connect("mongodb+srv://eric-camargo:Beatles2893@cluster1.iovng.mongodb.net/?retryWrites=true&w=majority");
+conn = mongoose.connect(process.env.MONGO_URI);
 console.log(conn)
 
 let Person;
+
+let personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  age: Number,
+  favoriteFoods: [{
+    type: String,
+    unique: true
+  }]
+})
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
