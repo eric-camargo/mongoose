@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-mongoose.connect("mongodb+srv://eric-camargo:Beatles2893@cluster1.iovng.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true});
-
+conn = mongoose.connect("mongodb+srv://eric-camargo:Beatles2893@cluster1.iovng.mongodb.net/?retryWrites=true&w=majority");
+console.log(conn)
 
 let Person;
 
