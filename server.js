@@ -39,6 +39,10 @@ const TIMEOUT = 10000;
 
 app.use(bodyParser.urlencoded({ extended: "false" }));
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  console.log(req.path)
+  next()
+})
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "views", "index.html"));
@@ -84,6 +88,7 @@ router.post("/mongoose-model", function (req, res, next) {
 const createPerson = require("./myApp.js").createAndSavePerson;
 router.get("/create-and-save-person", function (req, res, next) {
   // in case of incorrect function use wait timeout then respond
+  console.log('create-person')
   let t = setTimeout(() => {
     next({ message: "timeout" });
   }, TIMEOUT);
