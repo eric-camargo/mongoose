@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-conn = mongoose.connect(process.env.MONGO_URI);
+conn = mongoose.connect('mongodb+srv://ericbob:Beatles2893@cluster1.iovng.mongodb.net/?retryWrites=true&w=majority');
 console.log(conn)
 // console.log(conn)
 
