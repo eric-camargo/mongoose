@@ -70,7 +70,7 @@ const findEditThenSave = (personId, done) => {
 
     person.save((err, personUpdated) => {
       if (err) return console.log(err);
-      done(nell, personUpdated)
+      done(null, personUpdated)
     })
   })
 };
